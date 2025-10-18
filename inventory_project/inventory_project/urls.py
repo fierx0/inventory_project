@@ -93,6 +93,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("api/", include(router.urls)),
     path("api/auth/token/", obtain_auth_token),
+    path("api/users/", include("accounts.urls")),
     path("api/inventory/receive/", catalog_views.receive_stock),
     path("api/inventory/issue/", catalog_views.issue_stock),
     path("api/inventory/adjust/", catalog_views.adjust_stock),
