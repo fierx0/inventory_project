@@ -25,3 +25,33 @@ pip install -r requirements.txt
 python manage.py migrate
 python manage.py createsuperuser
 python manage.py runserver
+
+
+POST http://127.0.0.1:8000/api/users/register/
+
+Body → raw → JSON
+
+{
+  "username": "hunter",
+  "email": "hunter1@gmail.com",
+  "password": "Hunter@01"
+}
+POST http://127.0.0.1:8000/api/auth/token/
+POST http://127.0.0.1:8000/api/catalog/products/
+Body → JSON:
+{
+  "sku": "USB-002",
+  "name": "USB Cable 2m",
+  "category": 2,
+  "unit": "pcs",
+  "default_supplier": 1,
+  "is_active": true
+}
+
+POST http://127.0.0.1:8000/api/inventory/receive/
+
+{
+  "product": 1,
+  "quantity": 15,
+  "reason": "Restocking warehouse"
+}
